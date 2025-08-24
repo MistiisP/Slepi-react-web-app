@@ -1,0 +1,49 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+
+model Feed {
+  id        Int     @id @default(autoincrement()) 
+  name      String  
+  weight    Float   //kg
+  pricePerKg Float  
+}
+
+
+model Egg {
+  id        Int     @id @default(autoincrement())
+  count     Int    
+  createdAt DateTime @default(now()) 
+}
+
+
+model Chicken {
+  id        Int     @id @default(autoincrement())
+  name      String  
+  ageInWeeks Int   // Age in weeks
+  description String 
+  photoUrl  String // URL of the chicken's photo
+  breed     String
+  needFood Float  
+}
+
+
+model SoldEgg {
+  id        Int     @id @default(autoincrement())
+  count     Int     
+  price     Float   
+  soldAt    DateTime @default(now())
+}
+

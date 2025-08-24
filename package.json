@@ -1,0 +1,11 @@
+{
+  "scripts": {
+    "dev":"concurrently \"npm run dev --prefix be\" \"npm run dev --prefix fe\""
+  },
+  "dependencies": {
+    "@mui/icons-material": "^7.0.2"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
